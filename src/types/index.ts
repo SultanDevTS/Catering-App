@@ -53,4 +53,19 @@ export interface MenuItem {
   nutritionInfo: NutritionInfo;
   sampleMeals: SampleMeals;
 }
+
+export interface Testimonial {
+  name: string;
+  message: string;
+  rating: number;
+}
+
+export interface StarsProps {
+  interactive?: boolean;
+  rating: number;
+  onChange?: (rating: number) => void;
+  children?: React.ReactNode;
+};
+
+
 // export default {HeroProps, ServiceProps, contactProps, ContactInfo}

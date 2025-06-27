@@ -1,6 +1,7 @@
 import { Contact } from "../../components/feature/Contact/Contact";
 import { Hero } from "../../components/feature/Hero/Hero";
 import { Services } from "../../components/feature/Services/Services";
+import { Testimoni } from "../../components/feature/Testimonal/Testimoni";
 import { Footer } from "../../components/layout/Footer/Footer";
 // import { Header } from "../../components/layout/Header/Header";
 import type { ContactInfo, Service } from "../../types";
@@ -48,6 +49,7 @@ const Homepage: React.FC = () => {
         <Hero businessName={businessName} slogan={slogan} />
         <Services service={services} />
         <Contact contact={contactInfo} />
+        <Testimoni service={[]} />
       </main>
       <Footer />
     </div>
