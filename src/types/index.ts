@@ -67,5 +67,44 @@ export interface StarsProps {
   children?: React.ReactNode;
 };
 
+export interface SubcriptionPlan {
+  id:string
+  title: string, 
+  price: number, 
+  period: string,
+  features: string[],
+  popular: boolean,
+}
 
-// export default {HeroProps, ServiceProps, contactProps, ContactInfo}
+export interface MealType{
+   id: string;
+  name: string;
+  price: number;
+  description: string;
+}
+
+export interface DeliveryDay {
+  id:string,
+  name:string,
+  price: number
+};
+
+export interface FormData {
+  fullName:string,
+  phoneNumber:string,
+  selectedPlan: SubcriptionPlan | null,
+  mealTypes:string[],
+  deliveryDays:string[],
+  allergies:string
+}
+
+export interface FormErrors {
+  fullName?:string,
+  phoneNumber?: string;
+  selectedPlan?: string;
+  mealTypes?: string;
+  deliveryDays?: string;
+}
+
+
+// export {FormData,} 

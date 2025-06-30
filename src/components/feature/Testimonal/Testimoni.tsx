@@ -63,20 +63,20 @@ export const Testimoni: React.FC<ServiceProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Testimoni <span className="text-blue-600">Pelanggan</span>
+            Testimoni <span className="text-green-600">Pelanggan</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Kepuasan pelanggan adalah prioritas utama kami. Berikut adalah
             testimoni dari mereka yang telah mempercayai layanan kami.
           </p>
 
-          <button
+          <Button
             onClick={() => setShowForm(!showForm)}
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <MessageCircle size={20} />
             {showForm ? "Tutup Form" : "Tulis Testimoni"}
-          </button>
+          </Button>
         </div>
 
         {/* show form */}
@@ -158,15 +158,20 @@ export const Testimoni: React.FC<ServiceProps> = () => {
                 >
                   {isSubmitting ? (
                     <>
-                    <div className="w-5 flex items-center justify-center gap-2 py-3 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200 font-medium">
-                        Mengirim
-                    </div>
+                    <p>
+                       Mengirim
+                    </p>
+                       
+                    
                     </>
                   ): 
-                  <>
+
+                  <p>
                     <Send size={20}/>
-                    kirim Tesimoni
-                  </>}
+                    kirim
+                  </p>
+                
+                  }
                 </Button>
               </div>
             </Card>

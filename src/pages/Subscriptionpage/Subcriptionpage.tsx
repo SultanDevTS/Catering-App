@@ -1,7 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/Button/Button";
 import { Card } from "../../components/ui/Card/Card";
+import { dataSubcriptions } from "../../data/dataSubcription";
 
-export const SubscriptionPage: React.FC = () => (
+export const SubscriptionPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSelectPlan = (plan: typeof dataSubcriptions[0]) => {
+    navigate('/subcribe/form', {state: {selectedPlan : plan}});
+  };
+
+return(
+
   <main className="py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
@@ -10,29 +20,7 @@ export const SubscriptionPage: React.FC = () => (
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        {[
-          { 
-            title: "Basic", 
-            price: "Rp 3.500.000", 
-            period: "per bulan",
-            features: ["20 hari meal plan", "Konsultasi dasar", "Pengiriman gratis"],
-            popular: false
-          },
-          { 
-            title: "Premium", 
-            price: "Rp 4.500.000", 
-            period: "per bulan",
-            features: ["30 hari meal plan", "Konsultasi premium", "Pengiriman gratis", "Custom menu"],
-            popular: true
-          },
-          { 
-            title: "Ultimate", 
-            price: "Rp 6.000.000", 
-            period: "per bulan",
-            features: ["30 hari meal plan", "Konsultasi personal", "Pengiriman gratis", "Custom menu", "Nutrisi tracker"],
-            popular: false
-          }
-        ].map((plan, index) => (
+        {dataSubcriptions.map((plan, index) => (
           <Card key={index} className={`text-center relative ${plan.popular ? 'ring-2 ring-green-500 transform scale-105' : ''}`}>
             {plan.popular && (
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -51,7 +39,11 @@ export const SubscriptionPage: React.FC = () => (
                 <li key={featureIndex} className="text-gray-600">✓ {feature}</li>
               ))}
             </ul>
-            <Button variant={plan.popular ? "primary" : "secondary"} className="w-full">
+            <Button 
+            variant={plan.popular ? "primary" : "secondary"} 
+            className="w-full"
+            onClick={() => handleSelectPlan(plan)} 
+            >
               Pilih Paket
             </Button>
           </Card>
@@ -59,4 +51,6 @@ export const SubscriptionPage: React.FC = () => (
       </div>
     </div>
   </main>
-);
+)
+}
+;
